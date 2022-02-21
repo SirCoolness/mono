@@ -38,4 +38,8 @@ mono_register_bundled_satellite_assemblies (const MonoBundledSatelliteAssembly *
 MONO_API MonoBundledSatelliteAssembly *
 mono_create_new_bundled_satellite_assembly (const char *name, const char *culture, const unsigned char *data, unsigned int size);
 
+typedef gboolean (*CheckThread) (pthread_t tid);
+MONO_API MONO_RT_EXTERNAL_ONLY void mono_melonloader_set_thread_checker(CheckThread callback);
+
+MONO_API MONO_RT_EXTERNAL_ONLY void mono_melonloader_thread_suspend_reload();
 #endif /*__MONO_METADATA_MONO_PRIVATE_UNSTABLE_H__*/
